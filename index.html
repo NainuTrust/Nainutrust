@@ -2,6 +2,59 @@
 <html lang="en">
 <head>
     <style>
+        body { margin: 0; background: #0a0a0c; color: white; font-family: sans-serif; }
+        
+        /* Asset Box */
+        .asset-box { background: #1a1a2e; margin: 20px; padding: 20px; border-radius: 15px; border: 1px solid #333; }
+        .balance { font-size: 28px; font-weight: bold; margin: 10px 0; }
+        .btn-group { display: flex; gap: 10px; margin-top: 15px; }
+        .btn { flex: 1; padding: 12px; border-radius: 10px; border: none; font-weight: bold; cursor: pointer; }
+        .deposit { background: white; color: black; }
+        .withdraw { background: transparent; color: white; border: 1px solid #444; }
+
+        /* Grid Services */
+        .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 0 20px; }
+        .service-card { background: #1a1a2e; padding: 20px; border-radius: 15px; text-align: center; }
+        
+        /* Bottom Navigation */
+        .nav-bar { position: fixed; bottom: 0; width: 100%; background: #1a1a2e; display: flex; justify-content: space-around; padding: 15px 0; border-top: 1px solid #333; }
+        .plus-btn { background: #ff007f; color: white; width: 50px; height: 50px; border-radius: 50%; border: none; font-size: 24px; margin-top: -25px; }
+    </style>
+</head>
+<body>
+
+<!-- Asset Section -->
+<div class="asset-box">
+    <p>TOTAL AVAILABLE ASSETS</p>
+    <div class="balance">22.00 <span style="font-size: 16px;">PKR</span></div>
+    <div class="btn-group">
+        <button class="btn deposit">DEPOSIT</button>
+        <button class="btn withdraw">WITHDRAW</button>
+    </div>
+</div>
+
+<!-- Services Grid -->
+<div class="grid-container">
+    <div class="service-card">My Plans</div>
+    <div class="service-card">Team List</div>
+    <div class="service-card">Rewards</div>
+    <div class="service-card">Statement</div>
+</div>
+
+<!-- Nav Bar -->
+<div class="nav-bar">
+    <div>Home</div>
+    <div>History</div>
+    <button class="plus-btn">+</button>
+    <div>Team</div>
+    <div>Profile</div>
+</div>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
         body { margin: 0; font-family: sans-serif; background: #000; color: #fff; text-align: center; }
         .hero { padding: 80px 20px; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('YOUR_IMAGE_URL'); background-size: cover; }
         .logo-text { font-size: 50px; color: #fff; letter-spacing: 5px; text-transform: uppercase; }
@@ -25,40 +78,11 @@
 
 </body>
 </html>
-CREATE TABLE users (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50) NOT NULL,
-    password VARCHAR(255) NOT NULL
 );<form action="login.php" method="POST">
     <input type="text" name="username" placeholder="Username" required>
     <input type="password" name="password" placeholder="Password" required>
     <button type="submit">Login</button>
-</form><?php
-session_start();
-// Database connection
-$conn = mysqli_connect("localhost", "root", "", "database_name");
-
-$user = $_POST['username'];
-$pass = $_POST['password'];
-
-$sql = "SELECT * FROM users WHERE username='$user' AND password='$pass'";
-$result = mysqli_query($conn, $sql);
-
-if(mysqli_num_rows($result) > 0) {
-    $_SESSION['username'] = $user;
-    header("Location: dashboard.php"); // Sahi login par yahan bhejo
-} else {
-    echo "Invalid Username or Password!";
-}
-?><?php
-session_start();
-if(!isset($_SESSION['username'])) {
-    header("Location: index.php"); // Agar login nahi hai, wapis index pe bhejo
-    exit();
-}
-echo "<h1>Welcome, " . $_SESSION['username'] . "!</h1>";
-echo "<a href='logout.php'>Logout</a>";
-?>
+</form>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -76,7 +100,7 @@ echo "<a href='logout.php'>Logout</a>";
 
 <!-- Aapka Banner -->
 <div class="banner">
-    <img src="YOUR_BANNER_IMAGE_LINK" alt="Nainu Trust Banner">
+    <img src="YOUR_BANNER_IMAGE_LINK" alt="Nainu Trust">
 </div>
 
 <!-- Dashboard Stats -->
@@ -196,7 +220,61 @@ echo "<a href='logout.php'>Logout</a>";
 
     <button class="activate-btn">
         ACTIVATE PLAN ⚡
-    </button>
+    </button<style>
+    /* Plan Container */
+    .plans-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+</style>
+
+<div class="plans-container">
+
+    <!-- PLAN 2 -->
+    <div class="plan-card">
+        <div class="plan-header">
+            <div class="plan-icon"><img src="https://img.icons8.com/?size=100&id=85500&format=png&color=FFFFFF" width="30"></div>
+            <div class="verified-tag">VERIFIED TIER</div>
+        </div>
+        <div class="plan-title">PLAN 2</div>
+        <div class="plan-price"><span>Rs</span> 844.00</div>
+        <div class="info-row"><span>Daily Return</span><span class="info-value">270.00 PKR</span></div>
+        <div class="info-row"><span>Contract Period</span><span class="info-value">45 Days</span></div>
+        <div class="info-row"><span>Estimated Net Profit</span><span class="profit-value">+12,150.00 PKR</span></div>
+        <button class="activate-btn">ACTIVATE PLAN ⚡</button>
+    </div>
+
+    <!-- PLAN 3 -->
+    <div class="plan-card">
+        <div class="plan-header">
+            <div class="plan-icon"><img src="https://img.icons8.com/?size=100&id=85500&format=png&color=FFFFFF" width="30"></div>
+            <div class="verified-tag">VERIFIED TIER</div>
+        </div>
+        <div class="plan-title">PLAN 3</div>
+        <div class="plan-price"><span>Rs</span> 1,244.00</div>
+        <div class="info-row"><span>Daily Return</span><span class="info-value">410.00 PKR</span></div>
+        <div class="info-row"><span>Contract Period</span><span class="info-value">45 Days</span></div>
+        <div class="info-row"><span>Estimated Net Profit</span><span class="profit-value">+18,450.00 PKR</span></div>
+        <button class="activate-btn">ACTIVATE PLAN ⚡</button>
+    </div>
+
+    <!-- PLAN 4 -->
+    <div class="plan-card">
+        <div class="plan-header">
+            <div class="plan-icon"><img src="https://img.icons8.com/?size=100&id=85500&format=png&color=FFFFFF" width="30"></div>
+            <div class="verified-tag">VERIFIED TIER</div>
+        </div>
+        <div class="plan-title">PLAN 4</div>
+        <div class="plan-price"><span>Rs</span> 1,888.00</div>
+        <div class="info-row"><span>Daily Return</span><span class="info-value">620.00 PKR</span></div>
+        <div class="info-row"><span>Contract Period</span><span class="info-value">45 Days</span></div>
+        <div class="info-row"><span>Estimated Net Profit</span><span class="profit-value">+27,900.00 PKR</span></div>
+        <button class="activate-btn">ACTIVATE PLAN ⚡</button>
+    </div>
+
+</div>
 </div>
 
 </body>
@@ -229,6 +307,58 @@ echo "<a href='logout.php'>Logout</a>";
             document.getElementById('details').style.display = 'block';
         } else {
             document.getElementById('details').style.display = 'none';
+        }
+    }
+</script><!-- Updated Payment Modal -->
+<div id="paymentModal" style="display:none; position:fixed; top:10%; left:25%; width:50%; background:#111827; padding:25px; border-radius:15px; border:2px solid #374151; color:white; z-index:1000;">
+    <h3>Complete Payment</h3>
+    
+    <!-- Step 1: Select Method -->
+    <select id="paymentMethod" onchange="showDetails()" style="padding:10px; width:100%; margin-bottom:15px;">
+        <option value="">Select Method</option>
+        <option value="jazzcash">JazzCash</option>
+    </select>
+    
+    <!-- Step 2: Details Display -->
+    <div id="details" style="display:none; background:#1e293b; padding:15px; border-radius:10px;">
+        <p><strong>Send amount to:</strong> Fouzia Mai</p>
+        <p><strong>Number:</strong> 03071233456</p>
+        <hr style="border:0; border-top:1px solid #374151; margin:15px 0;">
+        
+        <!-- Step 3: Transaction ID & Receipt Upload -->
+        <label>Enter Transaction ID:</label><br>
+        <input type="text" id="txnId" placeholder="e.g. 123456789" style="width:90%; padding:10px; margin-bottom:15px;"><br>
+        
+        <label>Upload Payment Receipt:</label><br>
+        <input type="file" id="receiptFile" style="margin-bottom:15px;"><br>
+        
+        <button onclick="submitPayment()" style="background:#22c55e; color:white; padding:10px 20px; border:none; border-radius:5px; cursor:pointer;">SUBMIT PAYMENT</button>
+        <button onclick="document.getElementById('paymentModal').style.display='none'" style="background:transparent; border:1px solid white; color:white; padding:10px 20px; cursor:pointer;">Cancel</button>
+    </div>
+</div><script>
+    // Modal open karne ka logic (button click par)
+    document.querySelector('.activate-btn').onclick = function() {
+        document.getElementById('paymentModal').style.display = 'block';
+    };
+
+    // Method selection logic
+    function showDetails() {
+        var method = document.getElementById('paymentMethod').value;
+        if(method === 'jazzcash') {
+            document.getElementById('details').style.display = 'block';
+        }
+    }
+
+    // Submit button logic
+    function submitPayment() {
+        var txn = document.getElementById('txnId').value;
+        var file = document.getElementById('receiptFile').value;
+        
+        if(txn == "" || file == "") {
+            alert("Please enter Transaction ID and upload Receipt!");
+        } else {
+            alert("Payment Submitted! Admin will verify your transaction.");
+            document.getElementById('paymentModal').style.display = 'none';
         }
     }
 </script>
