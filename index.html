@@ -1,28 +1,45 @@
-
 import random
 
-def number_guessing_game():
-    print("--- Number Guessing Game mein Khush Amdeed! ---")
-    print("Maine 1 se 100 ke darmiyan ek number socha hai.")
-    
-    number_to_guess = random.randint(1, 100)
-    attempts = 0
-    guessed = False
+def battle_game():
+    player_health = 100
+    enemy_health = 100
+    inventory = ["Medkit"]
 
-    while not guessed:
-        try:
-            user_guess = int(input("Apna andaza (guess) lagayen: "))
-            attempts += 1
+    print("--- Welcome to Battle Survivor (Mini Version) ---")
+    print("Survival ka maqsad: Enemy ko harayen aur zinda rahen!\n")
 
-            if user_guess < number_to_guess:
-                print("Bohat chota hai! Thora bara number try karen.")
-            elif user_guess > number_to_guess:
-                print("Bohat bara hai! Thora chota number try karen.")
+    while player_health > 0 and enemy_health > 0:
+        print(f"Aapki Health: {player_health} | Enemy Health: {enemy_health}")
+        action = input("Kya karna chahenge? (attack/loot/heal): ").lower()
+
+        if action == "attack":
+            damage = random.randint(10, 25)
+            enemy_health -= damage
+            print(f"Aapne enemy ko {damage} damage diya!")
+        
+        elif action == "loot":
+            item = random.choice(["AK-47 (Power +10)", "Shield", "Medkit"])
+            inventory.append(item)
+            print(f"Aapko mila: {item}")
+        
+        elif action == "heal":
+            if "Medkit" in inventory:
+                player_health += 30
+                inventory.remove("Medkit")
+                print("Aapne Medkit use ki aur 30 HP recover kar li!")
             else:
-                print(f"Mubarak ho! Aapne {attempts} koshishon mein sahi number dhoond liya.")
-                guessed = True
-        except ValueError:
-            print("Baraye meherbani sirf number enter karen.")
+                print("Inventory mein Medkit nahi hai!")
+        
+        # Enemy ka turn
+        if enemy_health > 0:
+            enemy_damage = random.randint(5, 20)
+            player_health -= enemy_damage
+            print(f"Enemy ne aapko {enemy_damage} damage diya!")
+
+    if player_health <= 0:
+        print("\nGAME OVER! Aap haar gaye.")
+    else:
+        print("\nMUBARAK HO! Aapne enemy ko hara kar 'Booyah' kar liya!")
 
 if __name__ == "__main__":
-    number_guessing_game()
+    battle_game()
