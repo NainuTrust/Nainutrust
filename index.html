@@ -128,3 +128,54 @@
         alert("Your request is sent, please wait....");
     }
 </script>
+<style>
+    /* Withdrawal Container Styles */
+    .withdraw-container { background: #0a0e17; padding: 20px; color: white; font-family: sans-serif; }
+    .wallet-box { background: #1a2533; padding: 20px; border-radius: 15px; margin-bottom: 20px; }
+    .input-box { background: #1a2533; border: 1px solid #333; padding: 20px; border-radius: 15px; margin-bottom: 20px; }
+    .quick-btns { display: flex; gap: 10px; margin-top: 10px; }
+    .quick-btns button { flex: 1; padding: 10px; background: #253345; border: none; color: white; border-radius: 8px; cursor: pointer; }
+    .method-card { display: flex; align-items: center; justify-content: space-between; background: #1a2533; padding: 15px; border-radius: 10px; margin-bottom: 10px; border: 1px solid #333; cursor: pointer; }
+    .summary-box { display: flex; justify-content: space-between; background: #1a2533; padding: 20px; border-radius: 15px; margin-bottom: 20px; }
+    .continue-btn { width: 100%; padding: 18px; background: linear-gradient(90deg, #00d2ff, #3a7bd5); border: none; color: white; border-radius: 10px; font-weight: bold; cursor: pointer; }
+</style>
+
+<div class="withdraw-container">
+    <!-- Wallet Balance -->
+    <div class="wallet-box">
+        <p>AVAILABLE INTEREST WALLET</p>
+        <h1 style="font-size: 32px;">Rs 22.00</h1>
+    </div>
+
+    <!-- 1. Enter Amount -->
+    <div class="input-box">
+        <p><strong>1</strong> Enter Amount</p>
+        <input type="number" id="amount" placeholder="0.00" style="width: 100%; background: transparent; border: none; color: cyan; font-size: 24px; margin: 10px 0;">
+        <div class="quick-btns">
+            <button onclick="setAmount(100)">100</button>
+            <button onclick="setAmount(500)">500</button>
+            <button onclick="setAmount(1000)">1000</button>
+            <button onclick="setAmount(22)">MAX</button>
+        </div>
+    </div>
+
+    <!-- 2. Choose Method -->
+    <p><strong>2</strong> Choose Withdraw Method</p>
+    <div class="method-card"><div>JazzCash<br><small>Limit: Rs50 - Rs1M</small></div><input type="radio" name="method" checked></div>
+    <div class="method-card"><div>Easypaisa<br><small>Limit: Rs50 - Rs1M</small></div><input type="radio" name="method"></div>
+    <div class="method-card"><div>All Bank<br><small>Limit: Rs50 - Rs1M</small></div><input type="radio" name="method"></div>
+
+    <!-- 3. Live Summary -->
+    <p><strong>3</strong> Live Summary</p>
+    <div class="summary-box">
+        <div style="text-align:center;">CHARGE<br>--</div>
+        <div style="text-align:center;">AFTER CHARGE<br>--</div>
+        <div style="text-align:center;">YOU GET<br>--</div>
+    </div>
+
+    <button class="continue-btn">CONTINUE WITHDRAW</button>
+</div>
+
+<script>
+    function setAmount(val) { document.getElementById('amount').value = val; }
+</script>
