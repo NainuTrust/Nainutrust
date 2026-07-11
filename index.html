@@ -1,18 +1,27 @@
-<form action="login.php" method="POST">
-    <h2>Login</h2>
-    <input type="text" name="user" placeholder="Username" required>
-    <input type="password" name="pass" placeholder="Password" required>
-    <button type="submit">Login</button>
-</form>
-<?php
-session_start();
-if(!isset($_SESSION['user'])) {
-    header("Location: index.php"); // Login nahi hai to wapis bhejo
-    exit();
-}
-?>
-<h1>Welcome to Dashboard</h1>
-<div class="balance">
-    <h3>Current Balance: Rs. 5000</h3>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body { margin: 0; font-family: sans-serif; background: #000; color: #fff; text-align: center; }
+        .hero { padding: 80px 20px; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('YOUR_IMAGE_URL'); background-size: cover; }
+        .logo-text { font-size: 50px; color: #fff; letter-spacing: 5px; text-transform: uppercase; }
+        .btn-group { margin-top: 30px; }
+        .btn { padding: 15px 40px; margin: 10px; border: none; cursor: pointer; border-radius: 5px; font-weight: bold; }
+        .login { background: #007bff; color: white; }
+        .signup { background: #28a745; color: white; }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <h1 class="logo-text">NAINU TRUST</h1>
+    <p>SECURE • RELIABLE • INNOVATIVE</p>
+    
+    <div class="btn-group">
+        <button class="btn login">LOG IN</button>
+        <button class="btn signup">SIGN UP</button>
+    </div>
 </div>
-<a href="logout.php">Logout</a>
+
+</body>
+</html>
