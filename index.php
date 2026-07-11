@@ -1,4 +1,5 @@
-// Database Schema Logic (Laravel Migrations)
+<pre>
+    // Database Schema Logic (Laravel Migrations)
 Schema::create('users', function (Blueprint $table) {
     $table->id();
     $table->string('name');
@@ -57,4 +58,4 @@ public function handle() {
         'name' => $request->name,
         'parent_id' => $parent->id, // Parent link create ho gaya
     ]);
-}
+}</pre>
