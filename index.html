@@ -1,181 +1,73 @@
-<style>
-    /* Essential Services Section */
-    .services-title { padding: 20px 20px 0 20px; font-weight: bold; color: #ff007f; }
-    .services-grid { 
-        display: grid; 
-        grid-template-columns: 1fr 1fr; 
-        gap: 15px; 
-        padding: 20px; 
-        margin-bottom: 80px; /* Neeche space takay nav bar na chupay */
-    }
-    .service-btn { 
-        background: #1a1a2e; 
-        border: 1px solid #333; 
-        padding: 25px 10px; 
-        border-radius: 15px; 
-        text-align: center; 
-        color: white; 
-        cursor: pointer;
-        text-decoration: none;
-        display: block;
-    }
-    .service-btn:hover { background: #252545; }
-</style>
-
-<!-- Balance Section (0.00) -->
-<div class="asset-box">
-    <p>TOTAL AVAILABLE ASSETS</p>
-    <div class="balance">0.00 <span style="font-size: 16px;">PKR</span></div>
-    <div class="btn-group">
-        <button class="btn deposit">DEPOSIT</button>
-        <button class="btn withdraw">WITHDRAW</button>
-    </div>
-</div>
-
-<!-- Essential Services -->
-<div class="services-title">Essential Services</div>
-<div class="services-grid">
-    <a href="#" class="service-btn">My Plans</a>
-    <a href="#" class="service-btn">Team List</a>
-    <a href="#" class="service-btn">Rewards</a>
-    <a href="#" class="service-btn">APP</a>
-    <a href="#" class="service-btn">Withdraw Proof</a>
-    <a href="#" class="service-btn">Statement</a>
-    <a href="#" class="service-btn">Admin</a>
-    <a href="#" class="service-btn">Group</a>
-</div><style>
-    /* Stats Board Style */
-    .stats-board { background: #1a1a2e; border: 1px solid #333; padding: 20px; border-radius: 15px; margin: 20px; }
-    .stat-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #252545; }
-    .stat-value { font-weight: bold; }
-    
-    /* Refer & Earn Style */
-    .refer-box { background: #1a1a2e; border: 1px solid #333; padding: 20px; border-radius: 15px; margin: 20px; text-align: center; }
-    .refer-link { background: #000; padding: 15px; border-radius: 10px; margin: 15px 0; font-size: 12px; color: #ff007f; word-break: break-all; }
-    .copy-btn { width: 100%; padding: 15px; background: #ff007f; border: none; color: white; border-radius: 10px; font-weight: bold; cursor: pointer; }
-</style>
-
-<!-- Stats Board -->
-<div class="stats-board">
-    <div class="stat-row"><span>Total Deposits</span><span class="stat-value" style="color: #22c55e;">+1,876.00</span></div>
-    <div class="stat-row"><span>Total Withdrawals</span><span class="stat-value" style="color: #ef4444;">-790.00</span></div>
-    <div class="stat-row"><span>Direct Team</span><span class="stat-value">0 Members</span></div>
-    <div class="stat-row"><span>Referral Profit</span><span class="stat-value" style="color: #eab308;">88.03</span></div>
-</div>
-
-<!-- Refer & Earn -->
-<div class="refer-box">
-    <h3>Refer & Earn</h3>
-    <p style="font-size: 12px; color: #888;">Get commission for every successful invite</p>
-    <div class="refer-link">https://yourwebsite.com/register?ref=Hasnainmalik99</div>
-    <button class="copy-btn" onclick="copyLink()">COPY LINK</button>
-</div>
-
-<script>
-    function copyLink() {
-        alert("Link copied to clipboard!");
-    }
-</script><div class="payment-modal" id="payment-modal">
-    <div class="modal-content">
-        <h3>FINALIZE INVESTMENT</h3>
-        <p>Required Capital: <strong style="color: cyan;">Rs 844.00</strong></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nainu Trust Dashboard</title>
+    <style>
+        body { background: #050505; color: #fff; font-family: 'Segoe UI', sans-serif; margin: 0; padding-bottom: 80px; }
+        .header { padding: 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; }
+        .brand-name { font-size: 24px; font-weight: bold; color: #ff007f; letter-spacing: 1px; }
         
-        <!-- Gateway Selection -->
-        <div class="gateway-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/JazzCash_logo.png" width="40">
-            <div>
-                <p>JAZZCASH</p>
-                <small>PKR Payment</small>
-            </div>
-        </div>
+        .asset-box { background: linear-gradient(135deg, #1a1a2e, #0f0f1a); margin: 20px; padding: 25px; border-radius: 20px; border: 1px solid #333; }
+        .balance { font-size: 36px; font-weight: bold; margin: 10px 0; }
+        .btn-row { display: flex; gap: 10px; }
+        .btn { flex: 1; padding: 12px; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; }
+        .deposit { background: #fff; color: #000; }
+        .withdraw { background: #ff007f; color: #fff; }
 
-        <input type="text" value="844.00" class="amount-input" disabled>
-        <button class="confirm-btn" onclick="showPaymentDetails()">CONFIRM ACTIVATION</button>
-    </div>
-</div><div class="details-screen" id="details-screen" style="display:none;">
-    <div class="instruction-box">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/JazzCash_logo.png" width="60">
-        <h3>JAZZCASH</h3>
-        <p>Manual Deposit Verification</p>
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 0 20px; }
+        .stat-card { background: #111; padding: 15px; border-radius: 15px; border: 1px solid #222; }
+        
+        .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 20px; }
+        .service-btn { background: #111; padding: 20px; border-radius: 15px; text-align: center; border: 1px solid #222; text-decoration: none; color: #fff; font-size: 14px; }
+
+        .nav-bar { position: fixed; bottom: 0; width: 100%; background: #0a0a0a; display: flex; justify-content: space-around; padding: 15px 0; border-top: 1px solid #222; }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <div class="brand-name">Nainu Trust</div>
+        <div>☰</div>
     </div>
 
-    <div class="payment-info">
-        <p>Payable Amount: <span style="color: red; font-weight: bold;">844.00 PKR</span></p>
-        <div class="account-box">
-            Account Name: Muhammad Ilyas urf Manzoor<br>
-            Account Number: 03076270400
+    <!-- Balance -->
+    <div class="asset-box">
+        <div>TOTAL AVAILABLE ASSETS</div>
+        <div class="balance">22.00 <span style="font-size: 16px;">PKR</span></div>
+        <div class="btn-row">
+            <button class="btn deposit">DEPOSIT</button>
+            <button class="btn withdraw">WITHDRAW</button>
         </div>
     </div>
 
-    <!-- Upload Proof Section -->
-    <div class="upload-section">
-        <label>Screenshot *</label>
-        <input type="file" class="file-input">
-        
-        <label>Transaction ID *</label>
-        <input type="text" class="id-input" placeholder="Enter ID...">
-        
-        <button class="submit-btn" onclick="sendProof()">SUBMIT PAYMENT PROOF ⚡</button>
-    </div>
-</div><script>
-    function showPaymentDetails() {
-        document.getElementById('payment-modal').style.display = 'none';
-        document.getElementById('details-screen').style.display = 'block';
-    }
-
-    function sendProof() {
-        // Validation check
-        alert("Your request is sent, please wait....");
-    }
-</script>
-<style>
-    /* Withdrawal Container Styles */
-    .withdraw-container { background: #0a0e17; padding: 20px; color: white; font-family: sans-serif; }
-    .wallet-box { background: #1a2533; padding: 20px; border-radius: 15px; margin-bottom: 20px; }
-    .input-box { background: #1a2533; border: 1px solid #333; padding: 20px; border-radius: 15px; margin-bottom: 20px; }
-    .quick-btns { display: flex; gap: 10px; margin-top: 10px; }
-    .quick-btns button { flex: 1; padding: 10px; background: #253345; border: none; color: white; border-radius: 8px; cursor: pointer; }
-    .method-card { display: flex; align-items: center; justify-content: space-between; background: #1a2533; padding: 15px; border-radius: 10px; margin-bottom: 10px; border: 1px solid #333; cursor: pointer; }
-    .summary-box { display: flex; justify-content: space-between; background: #1a2533; padding: 20px; border-radius: 15px; margin-bottom: 20px; }
-    .continue-btn { width: 100%; padding: 18px; background: linear-gradient(90deg, #00d2ff, #3a7bd5); border: none; color: white; border-radius: 10px; font-weight: bold; cursor: pointer; }
-</style>
-
-<div class="withdraw-container">
-    <!-- Wallet Balance -->
-    <div class="wallet-box">
-        <p>AVAILABLE INTEREST WALLET</p>
-        <h1 style="font-size: 32px;">Rs 22.00</h1>
+    <!-- Stats -->
+    <div class="stats-grid">
+        <div class="stat-card">Total Dep: <br><b>+1,876.00</b></div>
+        <div class="stat-card">Total With: <br><b>-790.00</b></div>
+        <div class="stat-card">Team: <br><b>0 Members</b></div>
+        <div class="stat-card">Ref Profit: <br><b>88.03</b></div>
     </div>
 
-    <!-- 1. Enter Amount -->
-    <div class="input-box">
-        <p><strong>1</strong> Enter Amount</p>
-        <input type="number" id="amount" placeholder="0.00" style="width: 100%; background: transparent; border: none; color: cyan; font-size: 24px; margin: 10px 0;">
-        <div class="quick-btns">
-            <button onclick="setAmount(100)">100</button>
-            <button onclick="setAmount(500)">500</button>
-            <button onclick="setAmount(1000)">1000</button>
-            <button onclick="setAmount(22)">MAX</button>
-        </div>
+    <!-- Services -->
+    <div style="padding: 20px; font-size: 18px; font-weight: bold;">Essential Services</div>
+    <div class="services-grid">
+        <a href="#" class="service-btn">My Plans</a>
+        <a href="#" class="service-btn">Team List</a>
+        <a href="#" class="service-btn">Rewards</a>
+        <a href="#" class="service-btn">Statement</a>
     </div>
 
-    <!-- 2. Choose Method -->
-    <p><strong>2</strong> Choose Withdraw Method</p>
-    <div class="method-card"><div>JazzCash<br><small>Limit: Rs50 - Rs1M</small></div><input type="radio" name="method" checked></div>
-    <div class="method-card"><div>Easypaisa<br><small>Limit: Rs50 - Rs1M</small></div><input type="radio" name="method"></div>
-    <div class="method-card"><div>All Bank<br><small>Limit: Rs50 - Rs1M</small></div><input type="radio" name="method"></div>
-
-    <!-- 3. Live Summary -->
-    <p><strong>3</strong> Live Summary</p>
-    <div class="summary-box">
-        <div style="text-align:center;">CHARGE<br>--</div>
-        <div style="text-align:center;">AFTER CHARGE<br>--</div>
-        <div style="text-align:center;">YOU GET<br>--</div>
+    <!-- Bottom Nav -->
+    <div class="nav-bar">
+        <div>Home</div>
+        <div>History</div>
+        <div style="background:#ff007f; padding:10px; border-radius:50%; margin-top:-20px;">Deposit</div>
+        <div>Team</div>
+        <div>Profile</div>
     </div>
 
-    <button class="continue-btn">CONTINUE WITHDRAW</button>
-</div>
-
-<script>
-    function setAmount(val) { document.getElementById('amount').value = val; }
-</script>
+</body>
+</html>
