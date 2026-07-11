@@ -59,3 +59,176 @@ if(!isset($_SESSION['username'])) {
 echo "<h1>Welcome, " . $_SESSION['username'] . "!</h1>";
 echo "<a href='logout.php'>Logout</a>";
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #050b18; color: white; margin: 0; padding: 20px; }
+        .banner { width: 100%; max-width: 800px; margin: 0 auto 30px; border-radius: 15px; overflow: hidden; border: 2px solid #1e3a8a; }
+        .banner img { width: 100%; display: block; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto; }
+        .card { background: #111827; padding: 25px; border-radius: 12px; text-align: center; border: 1px solid #374151; }
+        .card h3 { color: #60a5fa; margin-bottom: 10px; }
+        .card p { font-size: 22px; font-weight: bold; margin: 0; }
+    </style>
+</head>
+<body>
+
+<!-- Aapka Banner -->
+<div class="banner">
+    <img src="YOUR_BANNER_IMAGE_LINK" alt="Nainu Trust Banner">
+</div>
+
+<!-- Dashboard Stats -->
+<div class="grid">
+    <div class="card"><h3>Current Balance</h3><p>Rs. 0.00</p></div>
+    <div class="card"><h3>Active Plan</h3><p>None</p></div>
+    <div class="card"><h3>Total Deposit</h3><p>Rs. 0.00</p></div>
+    <div class="card"><h3>Total Withdraw</h3><p>Rs. 0.00</p></div>
+    <div class="card"><h3>Your Refferal</h3><p>0</p></div>
+</div>
+
+</body><!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        /* Plan Card Styles */
+        .plan-card {
+            background-color: #111827; /* Dark Gray */
+            border: 1px solid #374151;
+            border-radius: 20px;
+            padding: 25px;
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+            color: white;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+        }
+
+        .plan-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .plan-icon {
+            background-color: #059669; /* Green Icon Bg */
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .verified-tag {
+            background: linear-gradient(to right, #06b6d4, #8b5cf6); /* Turquoise to Purple */
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .plan-title { font-size: 24px; font-weight: bold; margin: 10px 0; }
+        .plan-price { font-size: 32px; font-weight: bold; color: white; margin-bottom: 25px; }
+        .plan-price span { font-size: 20px; color: #14b8a6; margin-right: 5px; } /* Rs text */
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            color: #9ca3af; /* Light Gray Text */
+            font-size: 14px;
+        }
+
+        .info-value { color: #14b8a6; font-weight: bold; } /* Turquoise Value */
+        .profit-value { color: #22c55e; } /* Green Profit Value */
+
+        .activate-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: white;
+            color: #111827;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .activate-btn:hover { background-color: #f3f4f6; }
+    </style>
+</head>
+<body>
+
+<!-- Plan Card HTML -->
+<div class="plan-card">
+    <div class="plan-header">
+        <div class="plan-icon">
+            <!-- Replace with your icon image -->
+            <img src="https://img.icons8.com/?size=100&id=85500&format=png&color=FFFFFF" width="30" alt="icon">
+        </div>
+        <div class="verified-tag">VERIFIED TIER</div>
+    </div>
+
+    <div class="plan-title">PLAN 1</div>
+    <div class="plan-price"><span>Rs</span> 344.00</div>
+
+    <div class="info-row">
+        <span>Daily Return</span>
+        <span class="info-value">110.00 PKR</span>
+    </div>
+    <div class="info-row">
+        <span>Contract Period</span>
+        <span class="info-value">45 Days</span>
+    </div>
+    <div class="info-row">
+        <span>Estimated Net Profit</span>
+        <span class="profit-value">+4,950.00 PKR</span>
+    </div>
+
+    <button class="activate-btn">
+        ACTIVATE PLAN ⚡
+    </button>
+</div>
+
+</body>
+</html>
+</html><!-- Payment Modal -->
+<div id="paymentModal" style="display:none; position:fixed; top:20%; left:30%; background:#111827; padding:20px; border-radius:15px; border:2px solid #374151; color:white; z-index:1000;">
+    <h3>Select Payment Method</h3>
+    <select id="paymentMethod" onchange="showDetails()" style="padding:10px; width:100%;">
+        <option value="">Select Method</option>
+        <option value="jazzcash">JazzCash</option>
+        <option value="easypaisa">EasyPaisa</option>
+    </select>
+    
+    <div id="details" style="margin-top:20px; display:none;">
+        <p>Send amount to this account:</p>
+        <p><strong>Name:</strong> Fouzia Mai</p>
+        <p><strong>Number:</strong> 03071233456</p>
+        <button onclick="document.getElementById('paymentModal').style.display='none'">Close</button>
+    </div>
+</div><script>
+    // Button click par modal open kare
+    document.querySelector('.activate-btn').onclick = function() {
+        document.getElementById('paymentModal').style.display = 'block';
+    };
+
+    // JazzCash select hone par details dikhaye
+    function showDetails() {
+        var method = document.getElementById('paymentMethod').value;
+        if(method === 'jazzcash') {
+            document.getElementById('details').style.display = 'block';
+        } else {
+            document.getElementById('details').style.display = 'none';
+        }
+    }
+</script>
