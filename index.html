@@ -1,115 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nainu Trust Dashboard</title>
-    <style>
-        body { background: #050505; color: #fff; font-family: 'Segoe UI', sans-serif; margin: 0; padding-bottom: 80px; }
-        .header { padding: 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; }
-        .brand-name { font-size: 24px; font-weight: bold; color: #ff007f; }
-        
-        .asset-box { background: linear-gradient(135deg, #1a1a2e, #0f0f1a); margin: 20px; padding: 25px; border-radius: 20px; border: 1px solid #333; }
-        .balance { font-size: 36px; font-weight: bold; margin: 10px 0; }
-        
-        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 0 20px; }
-        .stat-card { background: #111; padding: 15px; border-radius: 15px; border: 1px solid #222; }
-        
-        .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 20px; }
-        .service-btn { background: #111; padding: 20px; border-radius: 15px; text-align: center; border: 1px solid #222; color: #fff; text-decoration: none; display: block; position: relative; }
-        
-        .coming-soon { color: #ff007f; font-size: 10px; margin-top: 5px; display: block; }
-    </style>
-</head>
-<body>
 
-    <div class="header">
-        <div class="brand-name">Nainu Trust</div>
-        <div>☰</div>
-    </div>
+import random
 
-    <div class="asset-box">
-        <div>TOTAL AVAILABLE ASSETS</div>
-        <div class="balance">0.00 <span style="font-size: 16px;">PKR</span></div>
-    </div>
+def number_guessing_game():
+    print("--- Number Guessing Game mein Khush Amdeed! ---")
+    print("Maine 1 se 100 ke darmiyan ek number socha hai.")
+    
+    number_to_guess = random.randint(1, 100)
+    attempts = 0
+    guessed = False
 
-    <div class="stats-grid">
-        <div class="stat-card">Total Dep: <br><b>0.00</b></div>
-        <div class="stat-card">Total With: <br><b>0.00</b></div>
-        <div class="stat-card">Team: <br><b>0 Members</b></div>
-        <div class="stat-card">Ref Profit: <br><b>0.00</b></div>
-    </div>
+    while not guessed:
+        try:
+            user_guess = int(input("Apna andaza (guess) lagayen: "))
+            attempts += 1
 
-    <div style="padding: 20px; font-weight: bold;">Essential Services</div>
-    <div class="services-grid">
-        <div class="service-btn" onclick="showSoon(this)">My Plans<span class="coming-soon"></span></div>
-        <div class="service-btn" onclick="showSoon(this)">Team List<span class="coming-soon"></span></div>
-        <div class="service-btn" onclick="showSoon(this)">Rewards<span class="coming-soon"></span></div>
-        <div class="service-btn" onclick="showSoon(this)">Statement<span class="coming-soon"></span></div>
-    </div>
+            if user_guess < number_to_guess:
+                print("Bohat chota hai! Thora bara number try karen.")
+            elif user_guess > number_to_guess:
+                print("Bohat bara hai! Thora chota number try karen.")
+            else:
+                print(f"Mubarak ho! Aapne {attempts} koshishon mein sahi number dhoond liya.")
+                guessed = True
+        except ValueError:
+            print("Baraye meherbani sirf number enter karen.")
 
-    <script>
-        function showSoon(element) {
-            let span = element.querySelector('.coming-soon');
-            span.innerText = "Coming Soon";
-            setTimeout(() => { span.innerText = ""; }, 2000);
-        }
-    </script>
-
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <style>
-        /* Luxury Styles */
-        .deposit-btn { background: #ff007f; color: white; padding: 15px; border-radius: 12px; text-align: center; font-weight: bold; cursor: pointer; border: none; width: 100%; margin: 10px 0; }
-        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); padding: 20px; overflow-y: auto; }
-        .plan-card { background: #111; border: 1px solid #333; padding: 20px; border-radius: 15px; margin-bottom: 15px; }
-        .input-field { width: 100%; padding: 10px; background: #222; border: 1px solid #444; color: white; margin: 10px 0; border-radius: 8px; }
-    </style>
-</head>
-<body>
-
-    <!-- Luxury Deposit Button -->
-    <button class="deposit-btn" onclick="openModal()">DEPOSIT FUNDS ⚡</button>
-
-    <!-- Deposit Modal -->
-    <div id="depositModal" class="modal">
-        <div id="modalBody">
-            <h2 style="color: #ff007f;">Select Your Plan</h2>
-            <div class="plan-card">
-                <h3>PLAN 1 - Rs 344.00</h3>
-                <button onclick="showPayment('344.00')">ACTIVATE PLAN</button><h3>PLAN 1 - Rs 344.00</h3>
-                <button onclick="showPayment('800')">ACTIVATE PLAN</button>
-            </div>
-            <!-- Add other plans similarly -->
-            <button onclick="document.getElementById('depositModal').style.display='none'">Close</button>
-        </div>
-    </div>
-
-    <script>
-        function openModal() { document.getElementById('depositModal').style.display = 'block'; }
-
-        function showPayment(amount) {
-            document.getElementById('modalBody').innerHTML = `
-                <h3>Pay Rs ${amount} via JazzCash</h3>
-                <div class="plan-card">
-                    <p>Account: 03076270400</p>
-                    <p>Name: Muhammad Ilyas urf Manzoor</p>
-                    <input type="file" class="input-field">
-                    <input type="text" class="input-field" placeholder="Enter Transaction ID">
-                    <button class="deposit-btn" onclick="submitRequest()">CONFIRM ACTIVATION</button>
-                </div>
-            `;
-        }
-
-        function submitRequest() {
-            alert("Your request is successfully sent, please wait....");
-            location.reload();
-        }
-    </script>
-</body>
-</html>-- Database update query (PHP mein ise aise run karein)
-UPDATE users 
-SET total_deposit = total_deposit + 344.00 
+if __name__ == "__main__":
+    number_guessing_game()
