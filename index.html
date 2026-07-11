@@ -25,3 +25,37 @@
 
 </body>
 </html>
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);<form action="login.php" method="POST">
+    <input type="text" name="username" placeholder="Username" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <button type="submit">Login</button>
+</form><?php
+session_start();
+// Database connection
+$conn = mysqli_connect("localhost", "root", "", "database_name");
+
+$user = $_POST['username'];
+$pass = $_POST['password'];
+
+$sql = "SELECT * FROM users WHERE username='$user' AND password='$pass'";
+$result = mysqli_query($conn, $sql);
+
+if(mysqli_num_rows($result) > 0) {
+    $_SESSION['username'] = $user;
+    header("Location: dashboard.php"); // Sahi login par yahan bhejo
+} else {
+    echo "Invalid Username or Password!";
+}
+?><?php
+session_start();
+if(!isset($_SESSION['username'])) {
+    header("Location: index.php"); // Agar login nahi hai, wapis index pe bhejo
+    exit();
+}
+echo "<h1>Welcome, " . $_SESSION['username'] . "!</h1>";
+echo "<a href='logout.php'>Logout</a>";
+?>
