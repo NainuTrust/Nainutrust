@@ -1,364 +1,130 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <style>
-        body { margin: 0; background: #0a0a0c; color: white; font-family: sans-serif; }
-        
-        /* Asset Box */
-        .asset-box { background: #1a1a2e; margin: 20px; padding: 20px; border-radius: 15px; border: 1px solid #333; }
-        .balance { font-size: 28px; font-weight: bold; margin: 10px 0; }
-        .btn-group { display: flex; gap: 10px; margin-top: 15px; }
-        .btn { flex: 1; padding: 12px; border-radius: 10px; border: none; font-weight: bold; cursor: pointer; }
-        .deposit { background: white; color: black; }
-        .withdraw { background: transparent; color: white; border: 1px solid #444; }
+<style>
+    /* Essential Services Section */
+    .services-title { padding: 20px 20px 0 20px; font-weight: bold; color: #ff007f; }
+    .services-grid { 
+        display: grid; 
+        grid-template-columns: 1fr 1fr; 
+        gap: 15px; 
+        padding: 20px; 
+        margin-bottom: 80px; /* Neeche space takay nav bar na chupay */
+    }
+    .service-btn { 
+        background: #1a1a2e; 
+        border: 1px solid #333; 
+        padding: 25px 10px; 
+        border-radius: 15px; 
+        text-align: center; 
+        color: white; 
+        cursor: pointer;
+        text-decoration: none;
+        display: block;
+    }
+    .service-btn:hover { background: #252545; }
+</style>
 
-        /* Grid Services */
-        .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 0 20px; }
-        .service-card { background: #1a1a2e; padding: 20px; border-radius: 15px; text-align: center; }
-        
-        /* Bottom Navigation */
-        .nav-bar { position: fixed; bottom: 0; width: 100%; background: #1a1a2e; display: flex; justify-content: space-around; padding: 15px 0; border-top: 1px solid #333; }
-        .plus-btn { background: #ff007f; color: white; width: 50px; height: 50px; border-radius: 50%; border: none; font-size: 24px; margin-top: -25px; }
-    </style>
-</head>
-<body>
-
-<!-- Asset Section -->
+<!-- Balance Section (0.00) -->
 <div class="asset-box">
     <p>TOTAL AVAILABLE ASSETS</p>
-    <div class="balance">22.00 <span style="font-size: 16px;">PKR</span></div>
+    <div class="balance">0.00 <span style="font-size: 16px;">PKR</span></div>
     <div class="btn-group">
         <button class="btn deposit">DEPOSIT</button>
         <button class="btn withdraw">WITHDRAW</button>
     </div>
 </div>
 
-<!-- Services Grid -->
-<div class="grid-container">
-    <div class="service-card">My Plans</div>
-    <div class="service-card">Team List</div>
-    <div class="service-card">Rewards</div>
-    <div class="service-card">Statement</div>
-</div>
-
-<!-- Nav Bar -->
-<div class="nav-bar">
-    <div>Home</div>
-    <div>History</div>
-    <button class="plus-btn">+</button>
-    <div>Team</div>
-    <div>Profile</div>
-</div>
-
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-    <style>
-        body { margin: 0; font-family: sans-serif; background: #000; color: #fff; text-align: center; }
-        .hero { padding: 80px 20px; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('YOUR_IMAGE_URL'); background-size: cover; }
-        .logo-text { font-size: 50px; color: #fff; letter-spacing: 5px; text-transform: uppercase; }
-        .btn-group { margin-top: 30px; }
-        .btn { padding: 15px 40px; margin: 10px; border: none; cursor: pointer; border-radius: 5px; font-weight: bold; }
-        .login { background: #007bff; color: white; }
-        .signup { background: #28a745; color: white; }
-    </style>
-</head>
-<body>
-
-<div class="hero">
-    <h1 class="logo-text">NAINU TRUST</h1>
-    <p>SECURE • RELIABLE • INNOVATIVE</p>
+<!-- Essential Services -->
+<div class="services-title">Essential Services</div>
+<div class="services-grid">
+    <a href="#" class="service-btn">My Plans</a>
+    <a href="#" class="service-btn">Team List</a>
+    <a href="#" class="service-btn">Rewards</a>
+    <a href="#" class="service-btn">APP</a>
+    <a href="#" class="service-btn">Withdraw Proof</a>
+    <a href="#" class="service-btn">Statement</a>
+    <a href="#" class="service-btn">Admin</a>
+    <a href="#" class="service-btn">Group</a>
+</div><style>
+    /* Stats Board Style */
+    .stats-board { background: #1a1a2e; border: 1px solid #333; padding: 20px; border-radius: 15px; margin: 20px; }
+    .stat-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #252545; }
+    .stat-value { font-weight: bold; }
     
-    <div class="btn-group">
-        <button class="btn login">LOG IN</button>
-        <button class="btn signup">SIGN UP</button>
-    </div>
-</div>
-
-</body>
-</html>
-);<form action="login.php" method="POST">
-    <input type="text" name="username" placeholder="Username" required>
-    <input type="password" name="password" placeholder="Password" required>
-    <button type="submit">Login</button>
-</form>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <style>
-        body { font-family: Arial, sans-serif; background-color: #050b18; color: white; margin: 0; padding: 20px; }
-        .banner { width: 100%; max-width: 800px; margin: 0 auto 30px; border-radius: 15px; overflow: hidden; border: 2px solid #1e3a8a; }
-        .banner img { width: 100%; display: block; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; max-width: 900px; margin: 0 auto; }
-        .card { background: #111827; padding: 25px; border-radius: 12px; text-align: center; border: 1px solid #374151; }
-        .card h3 { color: #60a5fa; margin-bottom: 10px; }
-        .card p { font-size: 22px; font-weight: bold; margin: 0; }
-    </style>
-</head>
-<body>
-
-<!-- Aapka Banner -->
-<div class="banner">
-    <img src="YOUR_BANNER_IMAGE_LINK" alt="Nainu Trust">
-</div>
-
-<!-- Dashboard Stats -->
-<div class="grid">
-    <div class="card"><h3>Current Balance</h3><p>Rs. 0.00</p></div>
-    <div class="card"><h3>Active Plan</h3><p>None</p></div>
-    <div class="card"><h3>Total Deposit</h3><p>Rs. 0.00</p></div>
-    <div class="card"><h3>Total Withdraw</h3><p>Rs. 0.00</p></div>
-    <div class="card"><h3>Your Refferal</h3><p>0</p></div>
-</div>
-
-</body><!DOCTYPE html>
-<html lang="en">
-<head>
-    <style>
-        /* Plan Card Styles */
-        .plan-card {
-            background-color: #111827; /* Dark Gray */
-            border: 1px solid #374151;
-            border-radius: 20px;
-            padding: 25px;
-            width: 100%;
-            max-width: 400px;
-            margin: 20px auto;
-            color: white;
-            font-family: Arial, sans-serif;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-        }
-
-        .plan-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .plan-icon {
-            background-color: #059669; /* Green Icon Bg */
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .verified-tag {
-            background: linear-gradient(to right, #06b6d4, #8b5cf6); /* Turquoise to Purple */
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-        }
-
-        .plan-title { font-size: 24px; font-weight: bold; margin: 10px 0; }
-        .plan-price { font-size: 32px; font-weight: bold; color: white; margin-bottom: 25px; }
-        .plan-price span { font-size: 20px; color: #14b8a6; margin-right: 5px; } /* Rs text */
-
-        .info-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 15px;
-            color: #9ca3af; /* Light Gray Text */
-            font-size: 14px;
-        }
-
-        .info-value { color: #14b8a6; font-weight: bold; } /* Turquoise Value */
-        .profit-value { color: #22c55e; } /* Green Profit Value */
-
-        .activate-btn {
-            width: 100%;
-            padding: 15px;
-            background-color: white;
-            color: #111827;
-            border: none;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        .activate-btn:hover { background-color: #f3f4f6; }
-    </style>
-</head>
-<body>
-
-<!-- Plan Card HTML -->
-<div class="plan-card">
-    <div class="plan-header">
-        <div class="plan-icon">
-            <!-- Replace with your icon image -->
-            <img src="https://img.icons8.com/?size=100&id=85500&format=png&color=FFFFFF" width="30" alt="icon">
-        </div>
-        <div class="verified-tag">VERIFIED TIER</div>
-    </div>
-
-    <div class="plan-title">PLAN 1</div>
-    <div class="plan-price"><span>Rs</span> 344.00</div>
-
-    <div class="info-row">
-        <span>Daily Return</span>
-        <span class="info-value">110.00 PKR</span>
-    </div>
-    <div class="info-row">
-        <span>Contract Period</span>
-        <span class="info-value">45 Days</span>
-    </div>
-    <div class="info-row">
-        <span>Estimated Net Profit</span>
-        <span class="profit-value">+4,950.00 PKR</span>
-    </div>
-
-    <button class="activate-btn">
-        ACTIVATE PLAN ⚡
-    </button<style>
-    /* Plan Container */
-    .plans-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 20px;
-        padding: 20px;
-    }
+    /* Refer & Earn Style */
+    .refer-box { background: #1a1a2e; border: 1px solid #333; padding: 20px; border-radius: 15px; margin: 20px; text-align: center; }
+    .refer-link { background: #000; padding: 15px; border-radius: 10px; margin: 15px 0; font-size: 12px; color: #ff007f; word-break: break-all; }
+    .copy-btn { width: 100%; padding: 15px; background: #ff007f; border: none; color: white; border-radius: 10px; font-weight: bold; cursor: pointer; }
 </style>
 
-<div class="plans-container">
-
-    <!-- PLAN 2 -->
-    <div class="plan-card">
-        <div class="plan-header">
-            <div class="plan-icon"><img src="https://img.icons8.com/?size=100&id=85500&format=png&color=FFFFFF" width="30"></div>
-            <div class="verified-tag">VERIFIED TIER</div>
-        </div>
-        <div class="plan-title">PLAN 2</div>
-        <div class="plan-price"><span>Rs</span> 844.00</div>
-        <div class="info-row"><span>Daily Return</span><span class="info-value">270.00 PKR</span></div>
-        <div class="info-row"><span>Contract Period</span><span class="info-value">45 Days</span></div>
-        <div class="info-row"><span>Estimated Net Profit</span><span class="profit-value">+12,150.00 PKR</span></div>
-        <button class="activate-btn">ACTIVATE PLAN ⚡</button>
-    </div>
-
-    <!-- PLAN 3 -->
-    <div class="plan-card">
-        <div class="plan-header">
-            <div class="plan-icon"><img src="https://img.icons8.com/?size=100&id=85500&format=png&color=FFFFFF" width="30"></div>
-            <div class="verified-tag">VERIFIED TIER</div>
-        </div>
-        <div class="plan-title">PLAN 3</div>
-        <div class="plan-price"><span>Rs</span> 1,244.00</div>
-        <div class="info-row"><span>Daily Return</span><span class="info-value">410.00 PKR</span></div>
-        <div class="info-row"><span>Contract Period</span><span class="info-value">45 Days</span></div>
-        <div class="info-row"><span>Estimated Net Profit</span><span class="profit-value">+18,450.00 PKR</span></div>
-        <button class="activate-btn">ACTIVATE PLAN ⚡</button>
-    </div>
-
-    <!-- PLAN 4 -->
-    <div class="plan-card">
-        <div class="plan-header">
-            <div class="plan-icon"><img src="https://img.icons8.com/?size=100&id=85500&format=png&color=FFFFFF" width="30"></div>
-            <div class="verified-tag">VERIFIED TIER</div>
-        </div>
-        <div class="plan-title">PLAN 4</div>
-        <div class="plan-price"><span>Rs</span> 1,888.00</div>
-        <div class="info-row"><span>Daily Return</span><span class="info-value">620.00 PKR</span></div>
-        <div class="info-row"><span>Contract Period</span><span class="info-value">45 Days</span></div>
-        <div class="info-row"><span>Estimated Net Profit</span><span class="profit-value">+27,900.00 PKR</span></div>
-        <button class="activate-btn">ACTIVATE PLAN ⚡</button>
-    </div>
-
-</div>
+<!-- Stats Board -->
+<div class="stats-board">
+    <div class="stat-row"><span>Total Deposits</span><span class="stat-value" style="color: #22c55e;">+1,876.00</span></div>
+    <div class="stat-row"><span>Total Withdrawals</span><span class="stat-value" style="color: #ef4444;">-790.00</span></div>
+    <div class="stat-row"><span>Direct Team</span><span class="stat-value">0 Members</span></div>
+    <div class="stat-row"><span>Referral Profit</span><span class="stat-value" style="color: #eab308;">88.03</span></div>
 </div>
 
-</body>
-</html>
-</html><!-- Payment Modal -->
-<div id="paymentModal" style="display:none; position:fixed; top:20%; left:30%; background:#111827; padding:20px; border-radius:15px; border:2px solid #374151; color:white; z-index:1000;">
-    <h3>Select Payment Method</h3>
-    <select id="paymentMethod" onchange="showDetails()" style="padding:10px; width:100%;">
-        <option value="">Select Method</option>
-        <option value="jazzcash">JazzCash</option>
-        <option value="easypaisa">EasyPaisa</option>
-    </select>
-    
-    <div id="details" style="margin-top:20px; display:none;">
-        <p>Send amount to this account:</p>
-        <p><strong>Name:</strong> Fouzia Mai</p>
-        <p><strong>Number:</strong> 03071233456</p>
-        <button onclick="document.getElementById('paymentModal').style.display='none'">Close</button>
+<!-- Refer & Earn -->
+<div class="refer-box">
+    <h3>Refer & Earn</h3>
+    <p style="font-size: 12px; color: #888;">Get commission for every successful invite</p>
+    <div class="refer-link">https://yourwebsite.com/register?ref=Hasnainmalik99</div>
+    <button class="copy-btn" onclick="copyLink()">COPY LINK</button>
+</div>
+
+<script>
+    function copyLink() {
+        alert("Link copied to clipboard!");
+    }
+</script><div class="payment-modal" id="payment-modal">
+    <div class="modal-content">
+        <h3>FINALIZE INVESTMENT</h3>
+        <p>Required Capital: <strong style="color: cyan;">Rs 844.00</strong></p>
+        
+        <!-- Gateway Selection -->
+        <div class="gateway-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/JazzCash_logo.png" width="40">
+            <div>
+                <p>JAZZCASH</p>
+                <small>PKR Payment</small>
+            </div>
+        </div>
+
+        <input type="text" value="844.00" class="amount-input" disabled>
+        <button class="confirm-btn" onclick="showPaymentDetails()">CONFIRM ACTIVATION</button>
+    </div>
+</div><div class="details-screen" id="details-screen" style="display:none;">
+    <div class="instruction-box">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/JazzCash_logo.png" width="60">
+        <h3>JAZZCASH</h3>
+        <p>Manual Deposit Verification</p>
+    </div>
+
+    <div class="payment-info">
+        <p>Payable Amount: <span style="color: red; font-weight: bold;">844.00 PKR</span></p>
+        <div class="account-box">
+            Account Name: Muhammad Ilyas urf Manzoor<br>
+            Account Number: 03076270400
+        </div>
+    </div>
+
+    <!-- Upload Proof Section -->
+    <div class="upload-section">
+        <label>Screenshot *</label>
+        <input type="file" class="file-input">
+        
+        <label>Transaction ID *</label>
+        <input type="text" class="id-input" placeholder="Enter ID...">
+        
+        <button class="submit-btn" onclick="sendProof()">SUBMIT PAYMENT PROOF ⚡</button>
     </div>
 </div><script>
-    // Button click par modal open kare
-    document.querySelector('.activate-btn').onclick = function() {
-        document.getElementById('paymentModal').style.display = 'block';
-    };
-
-    // JazzCash select hone par details dikhaye
-    function showDetails() {
-        var method = document.getElementById('paymentMethod').value;
-        if(method === 'jazzcash') {
-            document.getElementById('details').style.display = 'block';
-        } else {
-            document.getElementById('details').style.display = 'none';
-        }
-    }
-</script><!-- Updated Payment Modal -->
-<div id="paymentModal" style="display:none; position:fixed; top:10%; left:25%; width:50%; background:#111827; padding:25px; border-radius:15px; border:2px solid #374151; color:white; z-index:1000;">
-    <h3>Complete Payment</h3>
-    
-    <!-- Step 1: Select Method -->
-    <select id="paymentMethod" onchange="showDetails()" style="padding:10px; width:100%; margin-bottom:15px;">
-        <option value="">Select Method</option>
-        <option value="jazzcash">JazzCash</option>
-    </select>
-    
-    <!-- Step 2: Details Display -->
-    <div id="details" style="display:none; background:#1e293b; padding:15px; border-radius:10px;">
-        <p><strong>Send amount to:</strong> Fouzia Mai</p>
-        <p><strong>Number:</strong> 03071233456</p>
-        <hr style="border:0; border-top:1px solid #374151; margin:15px 0;">
-        
-        <!-- Step 3: Transaction ID & Receipt Upload -->
-        <label>Enter Transaction ID:</label><br>
-        <input type="text" id="txnId" placeholder="e.g. 123456789" style="width:90%; padding:10px; margin-bottom:15px;"><br>
-        
-        <label>Upload Payment Receipt:</label><br>
-        <input type="file" id="receiptFile" style="margin-bottom:15px;"><br>
-        
-        <button onclick="submitPayment()" style="background:#22c55e; color:white; padding:10px 20px; border:none; border-radius:5px; cursor:pointer;">SUBMIT PAYMENT</button>
-        <button onclick="document.getElementById('paymentModal').style.display='none'" style="background:transparent; border:1px solid white; color:white; padding:10px 20px; cursor:pointer;">Cancel</button>
-    </div>
-</div><script>
-    // Modal open karne ka logic (button click par)
-    document.querySelector('.activate-btn').onclick = function() {
-        document.getElementById('paymentModal').style.display = 'block';
-    };
-
-    // Method selection logic
-    function showDetails() {
-        var method = document.getElementById('paymentMethod').value;
-        if(method === 'jazzcash') {
-            document.getElementById('details').style.display = 'block';
-        }
+    function showPaymentDetails() {
+        document.getElementById('payment-modal').style.display = 'none';
+        document.getElementById('details-screen').style.display = 'block';
     }
 
-    // Submit button logic
-    function submitPayment() {
-        var txn = document.getElementById('txnId').value;
-        var file = document.getElementById('receiptFile').value;
-        
-        if(txn == "" || file == "") {
-            alert("Please enter Transaction ID and upload Receipt!");
-        } else {
-            alert("Payment Submitted! Admin will verify your transaction.");
-            document.getElementById('paymentModal').style.display = 'none';
-        }
+    function sendProof() {
+        // Validation check
+        alert("Your request is sent, please wait....");
     }
 </script>
