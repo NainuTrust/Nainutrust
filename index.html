@@ -58,3 +58,55 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        /* Luxury Styles */
+        .deposit-btn { background: #ff007f; color: white; padding: 15px; border-radius: 12px; text-align: center; font-weight: bold; cursor: pointer; border: none; width: 100%; margin: 10px 0; }
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); padding: 20px; overflow-y: auto; }
+        .plan-card { background: #111; border: 1px solid #333; padding: 20px; border-radius: 15px; margin-bottom: 15px; }
+        .input-field { width: 100%; padding: 10px; background: #222; border: 1px solid #444; color: white; margin: 10px 0; border-radius: 8px; }
+    </style>
+</head>
+<body>
+
+    <!-- Luxury Deposit Button -->
+    <button class="deposit-btn" onclick="openModal()">DEPOSIT FUNDS ⚡</button>
+
+    <!-- Deposit Modal -->
+    <div id="depositModal" class="modal">
+        <div id="modalBody">
+            <h2 style="color: #ff007f;">Select Your Plan</h2>
+            <div class="plan-card">
+                <h3>PLAN 1 - Rs 344.00</h3>
+                <button onclick="showPayment('344.00')">ACTIVATE PLAN</button>
+            </div>
+            <!-- Add other plans similarly -->
+            <button onclick="document.getElementById('depositModal').style.display='none'">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function openModal() { document.getElementById('depositModal').style.display = 'block'; }
+
+        function showPayment(amount) {
+            document.getElementById('modalBody').innerHTML = `
+                <h3>Pay Rs ${amount} via JazzCash</h3>
+                <div class="plan-card">
+                    <p>Account: 03076270400</p>
+                    <p>Name: Muhammad Ilyas urf Manzoor</p>
+                    <input type="file" class="input-field">
+                    <input type="text" class="input-field" placeholder="Enter Transaction ID">
+                    <button class="deposit-btn" onclick="submitRequest()">CONFIRM ACTIVATION</button>
+                </div>
+            `;
+        }
+
+        function submitRequest() {
+            alert("Your request is successfully sent, please wait....");
+            location.reload();
+        }
+    </script>
+</body>
+</html>
