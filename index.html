@@ -375,3 +375,117 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nainu Trust Dashboard</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #0f0f1a; color: #fff; margin: 0; padding-bottom: 80px; }
+        .content-section { display: none; padding: 20px; text-align: center; }
+        .active { display: block; }
+        
+        /* Footer Navigation */
+        .footer-nav { position: fixed; bottom: 0; width: 100%; background: #1a1a2e; display: flex; justify-content: space-around; align-items: center; padding: 10px 0; border-top: 2px solid #ffd700; }
+        .nav-item { display: flex; flex-direction: column; align-items: center; cursor: pointer; color: #ffd700; font-size: 0.8rem; }
+        .btn-deposit { background: #ff007f; padding: 15px; border-radius: 50%; margin-top: -40px; border: 5px solid #0f0f1a; cursor: pointer; font-size: 1.5rem; color: white; }
+    </style>
+</head>
+<body>
+
+    <!-- Dynamic Content Sections -->
+    <div id="home" class="content-section active"><h1>Home</h1><p>Welcome to Nainu Trust</p></div>
+    
+    <div id="history" class="content-section">
+        <h2>Transaction History</h2>
+        <p>Deposit: 5000 PKR - Approved</p>
+        <p>Withdraw: 2000 PKR - Pending</p>
+    </div>
+
+    <div id="team" class="content-section">
+        <h2>My Team</h2>
+        <p>Referral Link: <b>nainutrust.com/ref/user123</b></p>
+        <p>Total Members Joined: 5</p>
+    </div>
+
+    <div id="profile" class="content-section">
+        <h2>User Profile</h2>
+        <p>Name: Moji Gujjar</p>
+        <p>Gmail: moji@example.com</p>
+    </div>
+
+    <!-- Navigation Footer -->
+    <div class="footer-nav">
+        <div class="nav-item" onclick="show('home')">🏠 Home</div>
+        <div class="nav-item" onclick="show('history')">⇄ History</div>
+        
+        <div class="btn-deposit" onclick="alert('Open Deposit Page')">+</div>
+        
+        <div class="nav-item" onclick="show('team')">👥 Team</div>
+        <div class="nav-item" onclick="show('profile')">👤 Profile</div>
+    </div>
+
+    <script>
+        function show(id) {
+            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+    </script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nainu Trust Dashboard</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #0f0f1a; color: #fff; margin: 0; padding-bottom: 80px; }
+        .content-section { display: none; padding: 20px; text-align: center; }
+        .active { display: block; }
+        .input-field { width: 90%; padding: 12px; margin: 10px 0; border-radius: 10px; border: none; background: #2c2c54; color: #fff; }
+        .btn-lux { background: linear-gradient(45deg, #ffd700, #ff8c00); color: #000; padding: 12px 40px; border: none; border-radius: 30px; font-weight: bold; cursor: pointer; }
+        
+        /* Footer */
+        .footer-nav { position: fixed; bottom: 0; width: 100%; background: #1a1a2e; display: flex; justify-content: space-around; align-items: center; padding: 10px 0; border-top: 2px solid #ffd700; }
+        .nav-item { cursor: pointer; color: #ffd700; font-size: 0.8rem; text-align: center; }
+        .btn-deposit { background: #ff007f; padding: 15px; border-radius: 50%; margin-top: -40px; border: 5px solid #0f0f1a; cursor: pointer; color: white; font-size: 1.5rem; }
+    </style>
+</head>
+<body>
+
+    <!-- Deposit Section (Called by center button) -->
+    <div id="deposit-page" class="content-section">
+        <h2 style="color:#ffd700;">Deposit Funds</h2>
+        <input type="number" class="input-field" placeholder="Enter Amount">
+        <div style="background:#2c2c54; padding:15px; border-radius:10px; margin:10px;">
+            <p><strong>JazzCash</strong></p>
+            <p>Number: 03076270400</p>
+            <p>Name: Muhammad Ilyas urf Manzoor</p>
+        </div>
+        <input type="file" class="input-field">
+        <input type="text" class="input-field" placeholder="Transaction ID">
+        <button class="btn-lux" onclick="alert('Deposit Request Sent!')">Confirm Deposit</button>
+        <button onclick="show('home')" style="background:none; border:none; color:white; margin-top:10px; cursor:pointer;">Back</button>
+    </div>
+
+    <div id="home" class="content-section active"><h1>Home</h1><p>Welcome to Nainu Trust</p></div>
+    <div id="history" class="content-section"><h2>History</h2><p>Deposit & Withdraw records...</p></div>
+    <div id="team" class="content-section"><h2>Team</h2><p>Referral Link: nainutrust.com/ref/user123</p></div>
+    <div id="profile" class="content-section"><h2>Profile</h2><p>Name: Moji Gujjar</p><p>Gmail: moji@example.com</p></div>
+
+    <!-- Navigation -->
+    <div class="footer-nav">
+        <div class="nav-item" onclick="show('home')">🏠<br>Home</div>
+        <div class="nav-item" onclick="show('history')">⇄<br>History</div>
+        <div class="btn-deposit" onclick="show('deposit-page')">+</div>
+        <div class="nav-item" onclick="show('team')">👥<br>Team</div>
+        <div class="nav-item" onclick="show('profile')">👤<br>Profile</div>
+    </div>
+
+    <script>
+        function show(id) {
+            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+    </script>
+</body>
+</html>
