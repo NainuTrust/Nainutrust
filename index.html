@@ -7,67 +7,54 @@
     <style>
         body { background: #050505; color: #fff; font-family: 'Segoe UI', sans-serif; margin: 0; padding-bottom: 80px; }
         .header { padding: 20px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #222; }
-        .brand-name { font-size: 24px; font-weight: bold; color: #ff007f; letter-spacing: 1px; }
+        .brand-name { font-size: 24px; font-weight: bold; color: #ff007f; }
         
         .asset-box { background: linear-gradient(135deg, #1a1a2e, #0f0f1a); margin: 20px; padding: 25px; border-radius: 20px; border: 1px solid #333; }
         .balance { font-size: 36px; font-weight: bold; margin: 10px 0; }
-        .btn-row { display: flex; gap: 10px; }
-        .btn { flex: 1; padding: 12px; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; }
-        .deposit { background: #fff; color: #000; }
-        .withdraw { background: #ff007f; color: #fff; }
-
+        
         .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 0 20px; }
         .stat-card { background: #111; padding: 15px; border-radius: 15px; border: 1px solid #222; }
         
         .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; padding: 20px; }
-        .service-btn { background: #111; padding: 20px; border-radius: 15px; text-align: center; border: 1px solid #222; text-decoration: none; color: #fff; font-size: 14px; }
-
-        .nav-bar { position: fixed; bottom: 0; width: 100%; background: #0a0a0a; display: flex; justify-content: space-around; padding: 15px 0; border-top: 1px solid #222; }
+        .service-btn { background: #111; padding: 20px; border-radius: 15px; text-align: center; border: 1px solid #222; color: #fff; text-decoration: none; display: block; position: relative; }
+        
+        .coming-soon { color: #ff007f; font-size: 10px; margin-top: 5px; display: block; }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
     <div class="header">
         <div class="brand-name">Nainu Trust</div>
         <div>☰</div>
     </div>
 
-    <!-- Balance -->
     <div class="asset-box">
         <div>TOTAL AVAILABLE ASSETS</div>
-        <div class="balance">22.00 <span style="font-size: 16px;">PKR</span></div>
-        <div class="btn-row">
-            <button class="btn deposit">DEPOSIT</button>
-            <button class="btn withdraw">WITHDRAW</button>
-        </div>
+        <div class="balance">0.00 <span style="font-size: 16px;">PKR</span></div>
     </div>
 
-    <!-- Stats -->
     <div class="stats-grid">
-        <div class="stat-card">Total Dep: <br><b>+1,876.00</b></div>
-        <div class="stat-card">Total With: <br><b>-790.00</b></div>
+        <div class="stat-card">Total Dep: <br><b>0.00</b></div>
+        <div class="stat-card">Total With: <br><b>0.00</b></div>
         <div class="stat-card">Team: <br><b>0 Members</b></div>
-        <div class="stat-card">Ref Profit: <br><b>88.03</b></div>
+        <div class="stat-card">Ref Profit: <br><b>0.00</b></div>
     </div>
 
-    <!-- Services -->
-    <div style="padding: 20px; font-size: 18px; font-weight: bold;">Essential Services</div>
+    <div style="padding: 20px; font-weight: bold;">Essential Services</div>
     <div class="services-grid">
-        <a href="#" class="service-btn">My Plans</a>
-        <a href="#" class="service-btn">Team List</a>
-        <a href="#" class="service-btn">Rewards</a>
-        <a href="#" class="service-btn">Statement</a>
+        <div class="service-btn" onclick="showSoon(this)">My Plans<span class="coming-soon"></span></div>
+        <div class="service-btn" onclick="showSoon(this)">Team List<span class="coming-soon"></span></div>
+        <div class="service-btn" onclick="showSoon(this)">Rewards<span class="coming-soon"></span></div>
+        <div class="service-btn" onclick="showSoon(this)">Statement<span class="coming-soon"></span></div>
     </div>
 
-    <!-- Bottom Nav -->
-    <div class="nav-bar">
-        <div>Home</div>
-        <div>History</div>
-        <div style="background:#ff007f; padding:10px; border-radius:50%; margin-top:-20px;">Deposit</div>
-        <div>Team</div>
-        <div>Profile</div>
-    </div>
+    <script>
+        function showSoon(element) {
+            let span = element.querySelector('.coming-soon');
+            span.innerText = "Coming Soon";
+            setTimeout(() => { span.innerText = ""; }, 2000);
+        }
+    </script>
 
 </body>
 </html>
