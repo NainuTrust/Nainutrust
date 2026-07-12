@@ -178,4 +178,101 @@
 </script>
 
 </body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nainu Trust Luxury | Dashboard</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #0f0f0f; color: #d4af37; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .container { background: #1a1a1a; padding: 30px; border-radius: 15px; border: 1px solid #d4af37; width: 350px; text-align: center; box-shadow: 0 0 20px rgba(212, 175, 55, 0.2); }
+        input, select { width: 100%; padding: 10px; margin: 8px 0; background: #000; border: 1px solid #d4af37; color: #fff; border-radius: 5px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background: #d4af37; border: none; color: #000; font-weight: bold; cursor: pointer; margin-top: 10px; border-radius: 5px; }
+        .hidden { display: none; }
+        .stat-box { display: flex; justify-content: space-between; margin: 15px 0; font-size: 13px; }
+        .admin-link { color: #25D366; text-decoration: none; font-weight: bold; }
+        .history-item { border-bottom: 1px solid #333; padding: 5px 0; font-size: 12px; text-align: left; }
+    </style>
+</head>
+<body>
+
+<div class="container" id="mainBox">
+    <!-- Dashboard Screen -->
+    <div id="dashboard">
+        <h2>NAINU TRUST</h2>
+        <div class="stat-box">
+            <span>Dep: <b id="depVal">0</b></span>
+            <span>With: <b id="withVal">0</b></span>
+            <span>Profit: <b id="profitVal">0</b></span>
+        </div>
+        <button onclick="showSection('depositSection')">DEPOSIT</button>
+        <button onclick="showSection('withdrawSection')">WITHDRAWAL</button>
+        <button onclick="showSection('historySection')" style="background: #333; color: #d4af37;">HISTORY</button>
+        
+        <div style="margin-top:20px;">
+            <p>Admin Support:</p>
+            <a href="https://wa.me/92307620400" class="admin-link">0307620400 (WhatsApp)</a>
+        </div>
+        <p style="font-size: 10px; margin-top: 20px;">By By, Take Care!</p>
+    </div>
+
+    <!-- Deposit Section -->
+    <div id="depositSection" class="hidden">
+        <h3>DEPOSIT</h3>
+        <input type="number" id="depAmount" placeholder="Enter Amount">
+        <button onclick="process('deposit')">CONFIRM DEPOSIT</button>
+    </div>
+
+    <!-- Withdraw Section -->
+    <div id="withdrawSection" class="hidden">
+        <h3>WITHDRAW</h3>
+        <input type="number" id="withAmount" placeholder="Enter Amount">
+        <button onclick="process('withdraw')">CONFIRM WITHDRAW</button>
+    </div>
+
+    <!-- History Section -->
+    <div id="historySection" class="hidden">
+        <h3>TRANSACTION HISTORY</h3>
+        <div id="historyList"></div>
+        <button onclick="showSection('dashboard')">BACK</button>
+    </div>
+</div>
+
+<script>
+    let dep = 0, wit = 0, profit = 0;
+    let history = [];
+
+    function showSection(id) {
+        document.getElementById('dashboard').classList.add('hidden');
+        document.getElementById('depositSection').classList.add('hidden');
+        document.getElementById('withdrawSection').classList.add('hidden');
+        document.getElementById('historySection').classList.add('hidden');
+        document.getElementById(id).classList.remove('hidden');
+    }
+
+    function process(type) {
+        if(type === 'deposit') {
+            let val = parseInt(document.getElementById('depAmount').value);
+            dep += val; profit += (val * 0.1); // 10% demo profit
+            history.push("Deposited: " + val);
+            document.getElementById('depVal').innerText = dep;
+            document.getElementById('profitVal').innerText = profit;
+        } else {
+            let val = parseInt(document.getElementById('withAmount').value);
+            wit += val;
+            history.push("Withdraw: " + val);
+            document.getElementById('withVal').innerText = wit;
+        }
+        updateHistory();
+        alert("Request Successful! Please wait.");
+        showSection('dashboard');
+    }
+
+    function updateHistory() {
+        let list = document.getElementById('historyList');
+        list.innerHTML = history.map(item => `<div class="history-item">${item}</div>`).join('');
+    }
+</script>
+
+</body>
 </html>
