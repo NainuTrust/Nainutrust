@@ -100,4 +100,82 @@
 </script>
 
 </body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nainu Trust Luxury | Dashboard</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #0f0f0f; color: #d4af37; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .container { background: #1a1a1a; padding: 30px; border-radius: 15px; border: 1px solid #d4af37; width: 350px; text-align: center; box-shadow: 0 0 20px rgba(212, 175, 55, 0.2); }
+        input, select { width: 100%; padding: 10px; margin: 8px 0; background: #000; border: 1px solid #d4af37; color: #fff; border-radius: 5px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background: #d4af37; border: none; color: #000; font-weight: bold; cursor: pointer; margin-top: 10px; border-radius: 5px; }
+        .hidden { display: none; }
+        .details-box { background: #252525; padding: 10px; border-radius: 5px; margin: 10px 0; font-size: 14px; border-left: 3px solid #d4af37; }
+    </style>
+</head>
+<body>
+
+<div class="container" id="mainBox">
+    <!-- Welcome Screen -->
+    <div id="welcomeScreen">
+        <h2>WELCOME TO NAINU TRUST</h2>
+        <h3 id="userNameDisplay"></h3>
+        <button onclick="showSection('depositSection')">DEPOSIT</button>
+        <button onclick="showSection('withdrawSection')">WITHDRAWAL</button>
+    </div>
+
+    <!-- Deposit Section -->
+    <div id="depositSection" class="hidden">
+        <h3>DEPOSIT FUNDS</h3>
+        <select><option>JazzCash</option><option>EasyPaisa</option></select>
+        <input type="number" placeholder="Enter Amount">
+        <div class="details-box">
+            Account: 03076270400<br>Name: Muhammad Ilyas (Manzoor)
+        </div>
+        <input type="file">
+        <input type="text" placeholder="Transaction ID">
+        <button onclick="showMsg('Your request successful send, please wait!')">CONFIRM DEPOSIT</button>
+    </div>
+
+    <!-- Withdraw Section -->
+    <div id="withdrawSection" class="hidden">
+        <h3>WITHDRAW FUNDS</h3>
+        <select><option>JazzCash</option><option>EasyPaisa</option></select>
+        <input type="text" placeholder="Account Name">
+        <input type="text" placeholder="Account Number">
+        <input type="number" placeholder="Amount">
+        <button onclick="showMsg('Please wait, your request send!')">CONFIRM WITHDRAW</button>
+    </div>
+
+    <!-- Final Message -->
+    <div id="msgScreen" class="hidden">
+        <h3 id="msgText"></h3>
+        <button onclick="location.reload()">BACK TO DASHBOARD</button>
+    </div>
+</div>
+
+<script>
+    // Ye function login ke waqt naam set karta hai
+    function login() {
+        const name = document.getElementById('loginName').value || "USER";
+        document.getElementById('userNameDisplay').innerText = name.toUpperCase();
+        document.getElementById('loginForm').classList.add('hidden');
+        document.getElementById('welcomeScreen').classList.remove('hidden');
+    }
+
+    function showSection(id) {
+        document.getElementById('welcomeScreen').classList.add('hidden');
+        document.getElementById(id).classList.remove('hidden');
+    }
+
+    function showMsg(text) {
+        document.getElementById('depositSection').classList.add('hidden');
+        document.getElementById('withdrawSection').classList.add('hidden');
+        document.getElementById('msgScreen').classList.remove('hidden');
+        document.getElementById('msgText').innerText = text;
+    }
+</script>
+
+</body>
 </html>
