@@ -1,278 +1,61 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nainu Trust Luxury | Secure Access</title>
-    <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #0f0f0f; color: #d4af37; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-        .container { background: #1a1a1a; padding: 40px; border-radius: 15px; border: 1px solid #d4af37; width: 350px; text-align: center; box-shadow: 0 0 20px rgba(212, 175, 55, 0.2); }
-        h2 { font-family: 'Georgia', serif; margin-bottom: 20px; letter-spacing: 2px; }
-        input { width: 100%; padding: 12px; margin: 10px 0; background: #000; border: 1px solid #d4af37; color: #fff; border-radius: 5px; box-sizing: border-box; }
-        button { width: 100%; padding: 12px; background: #d4af37; border: none; color: #000; font-weight: bold; cursor: pointer; margin-top: 10px; border-radius: 5px; }
-        .footer-note { margin-top: 25px; font-size: 12px; color: #888; border-top: 1px solid #333; padding-top: 10px; }
-        .badge { display: inline-block; background: #333; padding: 3px 8px; border-radius: 3px; font-size: 10px; margin: 2px; }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <h2>NAINU TRUST</h2>
-    <input type="text" placeholder="Username/Email">
-    <input type="password" placeholder="Password">
-    <button>LOGIN</button>
-    <p style="font-size: 12px; cursor: pointer;">New member? <span style="text-decoration: underline;">Sign Up Now</span></p>
-
-    <div class="footer-note">
-        <span class="badge">SECURE PAYMENT</span>
-        <span class="badge">FBR VERIFIED</span>
-        <p>Your security is our priority. Transactions are encrypted.</p>
-    </div>
+<div class="luxury-modal">
+  <h2>Nainu Trust</h2>
+  <form id="authForm">
+    <input type="text" placeholder="Username" required>
+    <input type="tel" placeholder="Phone Number" required>
+    <input type="password" placeholder="Password" required>
+    <button type="submit">Continue</button>
+  </form>
+  
+  <div class="trust-footer">
+    <span>🛡️ FBR VERIFIED</span>
+    <span>💳 SECURE PAYMENT</span>
+  </div>
 </div>
 
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Nainu Trust Luxury | Secure Access</title>
-    <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #0f0f0f; color: #d4af37; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
-        .container { background: #1a1a1a; padding: 40px; border-radius: 15px; border: 1px solid #d4af37; width: 350px; text-align: center; box-shadow: 0 0 20px rgba(212, 175, 55, 0.2); }
-        h2 { font-family: 'Georgia', serif; letter-spacing: 2px; }
-        input { width: 100%; padding: 12px; margin: 10px 0; background: #000; border: 1px solid #d4af37; color: #fff; border-radius: 5px; box-sizing: border-box; }
-        button { width: 100%; padding: 12px; background: #d4af37; border: none; color: #000; font-weight: bold; cursor: pointer; margin-top: 10px; border-radius: 5px; transition: 0.3s; }
-        button:hover { background: #b8922e; }
-        .hidden { display: none; }
-        .footer-note { margin-top: 25px; font-size: 11px; color: #888; border-top: 1px solid #333; padding-top: 10px; }
-    </style>
-</head>
-<body>
+<style>
+.luxury-modal {
+  background: rgba(20, 20, 20, 0.95);
+  border: 1px solid #c5a059; /* Gold border */
+  padding: 40px;
+  border-radius: 15px;
+  color: #fff;
+  font-family: 'Georgia', serif;
+  width: 350px;
+  text-align: center;
+}
 
-<div class="container" id="authBox">
-    <div id="loginForm">
-        <h2>LOGIN</h2>
-        <input type="text" id="loginName" placeholder="Enter Username">
-        <input type="password" placeholder="Password">
-        <button onclick="login()">LOGIN</button>
-        <p style="font-size: 12px; cursor: pointer;" onclick="toggleAuth()">New member? <b>Sign Up</b></p>
-    </div>
+.luxury-modal h2 { color: #c5a059; margin-bottom: 25px; }
 
-    <div id="signupForm" class="hidden">
-        <h2>SIGN UP</h2>
-        <input type="text" id="signupName" placeholder="Username">
-        <input type="text" placeholder="Phone Number">
-        <input type="password" placeholder="Password">
-        <button onclick="login()">SIGN UP</button>
-        <p style="font-size: 12px; cursor: pointer;" onclick="toggleAuth()">Already a member? <b>Login</b></p>
-    </div>
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #444;
+  color: white;
+  transition: 0.3s;
+}
 
-    <div id="welcomeScreen" class="hidden">
-        <h2>WELCOME TO NAINU TRUST</h2>
-        <h3 id="displayName" style="color: #fff;"></h3>
-        <p style="color: #d4af37; font-size: 14px;">Secure Verified Account</p>
-        <div class="footer-note">
-            <p>✔ Secure Payment | ✔ FBR Verified</p>
-            <p>Your assets are in safe hands.</p>
-        </div>
-    </div>
-</div>
+input:focus { border-bottom: 1px solid #c5a059; outline: none; }
 
-<script>
-    function toggleAuth() {
-        document.getElementById('loginForm').classList.toggle('hidden');
-        document.getElementById('signupForm').classList.toggle('hidden');
-    }
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background: #c5a059;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
 
-    function login() {
-        // Name pick karna
-        const name = document.getElementById('loginName').value || document.getElementById('signupName').value;
-        
-        // Screens switch karna
-        document.getElementById('loginForm').classList.add('hidden');
-        document.getElementById('signupForm').classList.add('hidden');
-        document.getElementById('welcomeScreen').classList.remove('hidden');
-        
-        // Name display karna
-        document.getElementById('displayName').innerText = name.toUpperCase();
-    }
-</script>
-
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Nainu Trust Luxury | Dashboard</title>
-    <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #0f0f0f; color: #d4af37; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
-        .container { background: #1a1a1a; padding: 30px; border-radius: 15px; border: 1px solid #d4af37; width: 350px; text-align: center; box-shadow: 0 0 20px rgba(212, 175, 55, 0.2); }
-        input, select { width: 100%; padding: 10px; margin: 8px 0; background: #000; border: 1px solid #d4af37; color: #fff; border-radius: 5px; box-sizing: border-box; }
-        button { width: 100%; padding: 12px; background: #d4af37; border: none; color: #000; font-weight: bold; cursor: pointer; margin-top: 10px; border-radius: 5px; }
-        .hidden { display: none; }
-        .details-box { background: #252525; padding: 10px; border-radius: 5px; margin: 10px 0; font-size: 14px; border-left: 3px solid #d4af37; }
-    </style>
-</head>
-<body>
-
-<div class="container" id="mainBox">
-    <!-- Welcome Screen -->
-    <div id="welcomeScreen">
-        <h2>WELCOME TO NAINU TRUST</h2>
-        <h3 id="userNameDisplay"></h3>
-        <button onclick="showSection('depositSection')">DEPOSIT</button>
-        <button onclick="showSection('withdrawSection')">WITHDRAWAL</button>
-    </div>
-
-    <!-- Deposit Section -->
-    <div id="depositSection" class="hidden">
-        <h3>DEPOSIT FUNDS</h3>
-        <select><option>JazzCash</option><option>EasyPaisa</option></select>
-        <input type="number" placeholder="Enter Amount">
-        <div class="details-box">
-            Account: 03076270400<br>Name: Muhammad Ilyas (Manzoor)
-        </div>
-        <input type="file">
-        <input type="text" placeholder="Transaction ID">
-        <button onclick="showMsg('Your request successful send, please wait!')">CONFIRM DEPOSIT</button>
-    </div>
-
-    <!-- Withdraw Section -->
-    <div id="withdrawSection" class="hidden">
-        <h3>WITHDRAW FUNDS</h3>
-        <select><option>JazzCash</option><option>EasyPaisa</option></select>
-        <input type="text" placeholder="Account Name">
-        <input type="text" placeholder="Account Number">
-        <input type="number" placeholder="Amount">
-        <button onclick="showMsg('Please wait, your request send!')">CONFIRM WITHDRAW</button>
-    </div>
-
-    <!-- Final Message -->
-    <div id="msgScreen" class="hidden">
-        <h3 id="msgText"></h3>
-        <button onclick="location.reload()">BACK TO DASHBOARD</button>
-    </div>
-</div>
-
-<script>
-    // Ye function login ke waqt naam set karta hai
-    function login() {
-        const name = document.getElementById('loginName').value || "USER";
-        document.getElementById('userNameDisplay').innerText = name.toUpperCase();
-        document.getElementById('loginForm').classList.add('hidden');
-        document.getElementById('welcomeScreen').classList.remove('hidden');
-    }
-
-    function showSection(id) {
-        document.getElementById('welcomeScreen').classList.add('hidden');
-        document.getElementById(id).classList.remove('hidden');
-    }
-
-    function showMsg(text) {
-        document.getElementById('depositSection').classList.add('hidden');
-        document.getElementById('withdrawSection').classList.add('hidden');
-        document.getElementById('msgScreen').classList.remove('hidden');
-        document.getElementById('msgText').innerText = text;
-    }
-</script>
-
-</body>
-</html><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Nainu Trust Luxury | Dashboard</title>
-    <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #0f0f0f; color: #d4af37; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
-        .container { background: #1a1a1a; padding: 30px; border-radius: 15px; border: 1px solid #d4af37; width: 350px; text-align: center; box-shadow: 0 0 20px rgba(212, 175, 55, 0.2); }
-        input, select { width: 100%; padding: 10px; margin: 8px 0; background: #000; border: 1px solid #d4af37; color: #fff; border-radius: 5px; box-sizing: border-box; }
-        button { width: 100%; padding: 12px; background: #d4af37; border: none; color: #000; font-weight: bold; cursor: pointer; margin-top: 10px; border-radius: 5px; }
-        .hidden { display: none; }
-        .stat-box { display: flex; justify-content: space-between; margin: 15px 0; font-size: 13px; }
-        .admin-link { color: #25D366; text-decoration: none; font-weight: bold; }
-        .history-item { border-bottom: 1px solid #333; padding: 5px 0; font-size: 12px; text-align: left; }
-    </style>
-</head>
-<body>
-
-<div class="container" id="mainBox">
-    <!-- Dashboard Screen -->
-    <div id="dashboard">
-        <h2>NAINU TRUST</h2>
-        <div class="stat-box">
-            <span>Dep: <b id="depVal">0</b></span>
-            <span>With: <b id="withVal">0</b></span>
-            <span>Profit: <b id="profitVal">0</b></span>
-        </div>
-        <button onclick="showSection('depositSection')">DEPOSIT</button>
-        <button onclick="showSection('withdrawSection')">WITHDRAWAL</button>
-        <button onclick="showSection('historySection')" style="background: #333; color: #d4af37;">HISTORY</button>
-        
-        <div style="margin-top:20px;">
-            <p>Admin Support:</p>
-            <a href="https://wa.me/92307620400" class="admin-link">0307620400 (WhatsApp)</a>
-        </div>
-        <p style="font-size: 10px; margin-top: 20px;">By By, Take Care!</p>
-    </div>
-
-    <!-- Deposit Section -->
-    <div id="depositSection" class="hidden">
-        <h3>DEPOSIT</h3>
-        <input type="number" id="depAmount" placeholder="Enter Amount">
-        <button onclick="process('deposit')">CONFIRM DEPOSIT</button>
-    </div>
-
-    <!-- Withdraw Section -->
-    <div id="withdrawSection" class="hidden">
-        <h3>WITHDRAW</h3>
-        <input type="number" id="withAmount" placeholder="Enter Amount">
-        <button onclick="process('withdraw')">CONFIRM WITHDRAW</button>
-    </div>
-
-    <!-- History Section -->
-    <div id="historySection" class="hidden">
-        <h3>TRANSACTION HISTORY</h3>
-        <div id="historyList"></div>
-        <button onclick="showSection('dashboard')">BACK</button>
-    </div>
-</div>
-
-<script>
-    let dep = 0, wit = 0, profit = 0;
-    let history = [];
-
-    function showSection(id) {
-        document.getElementById('dashboard').classList.add('hidden');
-        document.getElementById('depositSection').classList.add('hidden');
-        document.getElementById('withdrawSection').classList.add('hidden');
-        document.getElementById('historySection').classList.add('hidden');
-        document.getElementById(id).classList.remove('hidden');
-    }
-
-    function process(type) {
-        if(type === 'deposit') {
-            let val = parseInt(document.getElementById('depAmount').value);
-            dep += val; profit += (val * 0.1); // 10% demo profit
-            history.push("Deposited: " + val);
-            document.getElementById('depVal').innerText = dep;
-            document.getElementById('profitVal').innerText = profit;
-        } else {
-            let val = parseInt(document.getElementById('withAmount').value);
-            wit += val;
-            history.push("Withdraw: " + val);
-            document.getElementById('withVal').innerText = wit;
-        }
-        updateHistory();
-        alert("Request Successful! Please wait.");
-        showSection('dashboard');
-    }
-
-    function updateHistory() {
-        let list = document.getElementById('historyList');
-        list.innerHTML = history.map(item => `<div class="history-item">${item}</div>`).join('');
-    }
-</script>
-
-</body>
-</html>
+.trust-footer {
+  margin-top: 30px;
+  font-size: 10px;
+  color: #888;
+  display: flex;
+  justify-content: space-around;
+  text-transform: uppercase;
+}
+</style>
