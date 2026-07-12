@@ -32,3 +32,72 @@
 
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Nainu Trust Luxury | Secure Access</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #0f0f0f; color: #d4af37; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .container { background: #1a1a1a; padding: 40px; border-radius: 15px; border: 1px solid #d4af37; width: 350px; text-align: center; box-shadow: 0 0 20px rgba(212, 175, 55, 0.2); }
+        h2 { font-family: 'Georgia', serif; letter-spacing: 2px; }
+        input { width: 100%; padding: 12px; margin: 10px 0; background: #000; border: 1px solid #d4af37; color: #fff; border-radius: 5px; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background: #d4af37; border: none; color: #000; font-weight: bold; cursor: pointer; margin-top: 10px; border-radius: 5px; transition: 0.3s; }
+        button:hover { background: #b8922e; }
+        .hidden { display: none; }
+        .footer-note { margin-top: 25px; font-size: 11px; color: #888; border-top: 1px solid #333; padding-top: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="container" id="authBox">
+    <div id="loginForm">
+        <h2>LOGIN</h2>
+        <input type="text" id="loginName" placeholder="Enter Username">
+        <input type="password" placeholder="Password">
+        <button onclick="login()">LOGIN</button>
+        <p style="font-size: 12px; cursor: pointer;" onclick="toggleAuth()">New member? <b>Sign Up</b></p>
+    </div>
+
+    <div id="signupForm" class="hidden">
+        <h2>SIGN UP</h2>
+        <input type="text" id="signupName" placeholder="Username">
+        <input type="text" placeholder="Phone Number">
+        <input type="password" placeholder="Password">
+        <button onclick="login()">SIGN UP</button>
+        <p style="font-size: 12px; cursor: pointer;" onclick="toggleAuth()">Already a member? <b>Login</b></p>
+    </div>
+
+    <div id="welcomeScreen" class="hidden">
+        <h2>WELCOME TO NAINU TRUST</h2>
+        <h3 id="displayName" style="color: #fff;"></h3>
+        <p style="color: #d4af37; font-size: 14px;">Secure Verified Account</p>
+        <div class="footer-note">
+            <p>✔ Secure Payment | ✔ FBR Verified</p>
+            <p>Your assets are in safe hands.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleAuth() {
+        document.getElementById('loginForm').classList.toggle('hidden');
+        document.getElementById('signupForm').classList.toggle('hidden');
+    }
+
+    function login() {
+        // Name pick karna
+        const name = document.getElementById('loginName').value || document.getElementById('signupName').value;
+        
+        // Screens switch karna
+        document.getElementById('loginForm').classList.add('hidden');
+        document.getElementById('signupForm').classList.add('hidden');
+        document.getElementById('welcomeScreen').classList.remove('hidden');
+        
+        // Name display karna
+        document.getElementById('displayName').innerText = name.toUpperCase();
+    }
+</script>
+
+</body>
+</html>
