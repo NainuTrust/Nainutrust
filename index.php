@@ -1,3 +1,1 @@
-CREATE TABLE users (id INT PRIMARY KEY AUTO_INCREMENT, name VARCHAR(100), email VARCHAR(100), password VARCHAR(255), balance DECIMAL(10,2) DEFAULT 0, referral_code VARCHAR(50));
-CREATE TABLE investments (id INT PRIMARY KEY AUTO_INCREMENT, user_id INT, plan_name VARCHAR(50), amount DECIMAL(10,2), status VARCHAR(20));
-CREATE TABLE transactions (id INT PRIMARY KEY AUTO_INCREMENT, user_id INT, type VARCHAR(20), amount DECIMAL(10,2), proof VARCHAR(255), status VARCHAR(20));
+
